@@ -34,14 +34,18 @@ class Animal
         /* Destructeur */
         ~Animal();
 
-        /* Méthodes */
+        /* Setters */
+        void setVivant(bool v);
+        virtual void setAttaque() = 0; // virtuelle pure
+
+        /* Getters */
         const string getNom();
         const int getX();
         const int getY();
         const bool getVivant();
-        void setVivant(bool v);
         const Attaque getAttaque();
-        bool Attaque(Animal &a);
-        virtual void setAttaque() = 0; // virtuelle pure
+
+        /* Méthodes */
+        bool attaque(Animal &a);
         virtual void deplace(int maxX, int maxY) = 0; // virtuelle pure
 };
