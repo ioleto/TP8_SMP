@@ -116,7 +116,13 @@ void Partie::tourDeJeu()
     }
 
     // On copie le tableau temporaire dans le tableau d'animaux
-    memcpy(this->tabAnimaux, tabTEMPAnimaux, sizeof(this->tabAnimaux));
+    for (int iy = 0; iy < this->maxY; iy++)
+    {
+        for (int ix = 0; ix < this->maxX; ix++)
+        {
+            this->tabAnimaux[ix][iy] = tabTEMPAnimaux[ix][iy];
+        }
+    }
 
     // On parcourt le tableau d'animaux
     for (int iy = 0; iy < this->maxY; iy++)
@@ -134,7 +140,7 @@ void Partie::tourDeJeu()
                     Animal *a = this->tabAnimaux[ix][iy].front();
                     Animal *b = this->tabAnimaux[ix][iy].back();
 
-                    // On attaque l'animal++
+                    // On attaque l'animal
                     if (a->attaque(*b))
                     {
                         // On supprime l'animal attaqué
