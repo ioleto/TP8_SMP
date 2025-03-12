@@ -9,7 +9,7 @@
  * 
  */
 
-#include "animal.h"
+#include "animal.hpp"
 
 /* Constructeur */
 
@@ -141,23 +141,23 @@ bool Animal::attaque(Animal &a)
 {
     if(this->vivant && a.vivant)
     {
-        cout << this->nom << " attaque " << a.nom << endl;
+        cout << this->nom << " VS " << a.nom << " : ";
         if(this->typeAttaque.resoudreAttaque(a.typeAttaque))
         {
-            cout << this->nom << " gagne" << endl;
+            cout << this->nom << endl;
             a.setVivant(false);
             return true;
         }
         else
         {
-            cout << a.nom << " gagne" << endl;
+            cout << a.nom << endl;
             this->vivant = false;
             return false;
         }
     }
     else
     {
-        cout << "Un des deux animaux est mort !" << endl;
+        cout << "Un des deux animaux est déjà mort !" << endl;
         return true;
     }
 }

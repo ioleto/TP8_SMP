@@ -12,7 +12,7 @@
 #ifndef OURS_H
 #define OURS_H
 
-#include "animal.h"
+#include "animal.hpp"
 #include <iostream>
 
 using namespace std;
@@ -31,3 +31,5 @@ class Ours : public Animal
         void setAttaque();
         void deplace(int maxX, int maxY);
 };
+
+#endif // OURS_H

@@ -8,12 +8,18 @@
 #include <ctime>
 #include <stdlib.h>
 
+#include "partie.hpp"
+
 using namespace std;
 
 int main()
 {
-    srand(NULL);
+    srand(time(NULL));
     
+    Partie PartieTest(10, 10);
+    PartieTest.afficherPlateau();
+    PartieTest.tourDeJeu();
+    PartieTest.afficherPlateau();
 
     return 0;
 }

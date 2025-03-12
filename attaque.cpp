@@ -9,7 +9,7 @@
  * 
  */
 
-#include "attaque.h"
+#include "attaque.hpp"
 
 /* Constructeurs */
 
@@ -45,7 +45,7 @@ Attaque::Attaque(int a)
  */
 Attaque::~Attaque()
 {
-    cout << "Destruction de l'attaque" << endl;
+    // cout << "Destruction de l'attaque" << endl;
 }
 
 /* Méthodes */

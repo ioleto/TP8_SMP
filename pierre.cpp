@@ -9,7 +9,9 @@
  * 
  */
 
-#include "pierre.h"
+#include "pierre.hpp"
+
+#define NAME_PIERRE "P"
 
 /* Constructeur */
 
@@ -22,7 +24,7 @@
  */
 Pierre::Pierre(int maxX, int maxY) : Animal(maxX, maxY)
 {
-    this->nom = "Pierre";
+    this->nom = NAME_PIERRE;   
     this->setAttaque();
 }
 
@@ -70,7 +72,7 @@ void Pierre::setAttaque()
  * @param maxX : largeur de la grille
  * @param maxY : hauteur de la grille
  */
-void Loup::deplace(int maxX, int maxY)
+void Pierre::deplace(int maxX, int maxY)
 {
     // La pierre ne bouge pas
 }

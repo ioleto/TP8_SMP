@@ -35,3 +35,5 @@ class Attaque
         /* Variable */
         int type; // 0 :pierre, 1: Feuille, 2:Ciseaux
 };
+
+#endif // ATTAQUE_H

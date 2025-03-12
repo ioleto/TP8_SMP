@@ -12,7 +12,7 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
-#include "attaque.h"
+#include "attaque.hpp"
 #include <iostream>
 
 using namespace std;
@@ -49,3 +49,5 @@ class Animal
         bool attaque(Animal &a);
         virtual void deplace(int maxX, int maxY) = 0; // virtuelle pure
 };
+
+#endif // ANIMAL_H

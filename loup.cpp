@@ -9,7 +9,9 @@
  * 
  */
 
-#include "loup.h"
+#include "loup.hpp"
+
+#define NAME_LOUP "L"
 
 /* Constructeur */
 
@@ -22,7 +24,7 @@
  */
 Loup::Loup(int maxX, int maxY) : Animal(maxX, maxY)
 {
-    this->nom = "Loup";
+    this->nom = NAME_LOUP;
     this->setAttaque();
 }
 
