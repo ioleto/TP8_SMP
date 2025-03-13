@@ -141,7 +141,10 @@ bool Animal::attaque(Animal &a)
 {
     if(this->vivant && a.vivant)
     {
-        cout << this->nom << " VS " << a.nom << " : ";
+        this->setAttaque();
+        a.setAttaque();
+
+        cout << this->nom << this->typeAttaque.getNomAttaque() << " VS " << a.nom << a.typeAttaque.getNomAttaque() << " : ";
         if(this->typeAttaque.resoudreAttaque(a.typeAttaque))
         {
             cout << this->nom << endl;

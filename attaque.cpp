@@ -90,11 +90,11 @@ const string Attaque::getNomAttaque()
     switch(this->type)
     {
         case 0:
-            return "Pierre";
+            return "💎";
         case 1:
-            return "Feuille";
+            return "📜";
         case 2:
-            return "Ciseaux";
+            return "🗡 ";
         default:
             return "Erreur";
     }

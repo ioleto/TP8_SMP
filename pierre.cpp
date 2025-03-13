@@ -11,7 +11,7 @@
 
 #include "pierre.hpp"
 
-#define NAME_PIERRE "P"
+#define NAME_PIERRE "⛰ "    // "P"
 
 /* Constructeur */
 
@@ -39,7 +39,7 @@ Pierre::Pierre(int maxX, int maxY) : Animal(maxX, maxY)
  */
 Pierre::Pierre(int maxX, int maxY, int a, int b) : Animal(maxX, maxY, a, b)
 {
-    this->nom = "Pierre";
+    this->nom = NAME_PIERRE;
     this->setAttaque();
 }
 
