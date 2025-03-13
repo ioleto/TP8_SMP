@@ -43,6 +43,7 @@
      /* Méthodes */
      void tourDeJeu();
      void afficherPlateau();
+     int getNbAnimaux();
  };
  
  #endif // PARTIE_H

@@ -17,9 +17,11 @@ int main()
     srand(time(NULL));
     
     Partie PartieTest(10, 10);
-    PartieTest.afficherPlateau();
-    PartieTest.tourDeJeu();
-    PartieTest.afficherPlateau();
+    while(PartieTest.getNbAnimaux() > 1)
+    {
+        PartieTest.tourDeJeu();
+        PartieTest.afficherPlateau();
+    }
 
     return 0;
 }

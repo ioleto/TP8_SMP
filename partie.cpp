@@ -96,15 +96,17 @@ void Partie::tourDeJeu()
                     int x = a->getX();
                     int y = a->getY();
 
-                    // On affiche les coordonnées de l'animal
-                    cout << "Animal : " << a->getNom() << " en (" << x << ", " << y << "),";
+                    // DEBUG On affiche les coordonnées de l'animal
+                    // cout << a->getNom() << " en (" << x << ", " << y << "),";
+
                     // On deplace l'animal
                     a->deplace(this->maxX, this->maxY);
                     // On récupère les nouvelles coordonnées de l'animal
                     x = a->getX();
                     y = a->getY();
-                    // On affiche les nouvelles coordonnées de l'animal
-                    cout << " déplacé en (" << x << ", " << y << ")" << endl;
+
+                    // DEBUG On affiche les nouvelles coordonnées de l'animal
+                    // cout << " déplacé en (" << x << ", " << y << ")" << endl;
 
                     // On ajoute l'animal dans le tableau temporaire
                     tabTEMPAnimaux[x][y].push_back(a);
@@ -132,7 +134,7 @@ void Partie::tourDeJeu()
             nbAnimauxsurCase = this->tabAnimaux[ix][iy].size();
             if (nbAnimauxsurCase > 1)
             {
-                cout << nbAnimauxsurCase << " animaux sur la case (" << ix << ", " << iy << ")" << endl;
+                // cout << nbAnimauxsurCase << " animaux sur la case (" << ix << ", " << iy << ")" << endl;
                 // On parcourt les animaux de la case
                 while (nbAnimauxsurCase > 1)
                 {
@@ -145,11 +147,13 @@ void Partie::tourDeJeu()
                     {
                         // On supprime l'animal attaqué
                         this->tabAnimaux[ix][iy].pop_back();
+                        this->nbAnimaux--;
                     }
                     else
                     {
                         // On supprime l'animal attaquant
                         this->tabAnimaux[ix][iy].erase(this->tabAnimaux[ix][iy].begin());
+                        this->nbAnimaux--;
                     }
 
                     nbAnimauxsurCase = this->tabAnimaux[ix][iy].size();
@@ -157,6 +161,9 @@ void Partie::tourDeJeu()
             }
         }
     }
+
+    // On compte le nombre d'animaux vivants
+    cout << "Il reste " << this->nbAnimaux << (this->nbAnimaux==1 ? " animal" : " animaux") << " en vie" << endl;
 }
 
 void Partie::afficherPlateau()
@@ -175,7 +182,7 @@ void Partie::afficherPlateau()
         {
             if (this->tabAnimaux[ix][iy].size() > 0)
             {
-                cout << "  " << this->tabAnimaux[ix][iy][0]->getNom() << " |";
+                cout << " " << this->tabAnimaux[ix][iy][0]->getNom() << " |";
             }
             else
             {
@@ -190,4 +197,9 @@ void Partie::afficherPlateau()
         cout << "▬▬▬▬|";
     }
     cout << endl;
+}
+
+int Partie::getNbAnimaux()
+{
+    return this->nbAnimaux;
 }
