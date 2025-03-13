@@ -41,8 +41,10 @@ Partie::Partie(int maxX, int maxY)
 
     int animauxAplacer = (maxX * maxY) * 0.25;
 
-    int loupAplacer = animauxAplacer / 2;
-    int pierreAplacer = animauxAplacer / 2;
+    int loupAplacer = animauxAplacer / 4;
+    int pierreAplacer = animauxAplacer / 4;
+    int oursAplacer = animauxAplacer / 4;
+    int lionAplacer = animauxAplacer / 4;
 
     for (loupAplacer; loupAplacer > 0; loupAplacer--)
     {
@@ -55,6 +57,20 @@ Partie::Partie(int maxX, int maxY)
     {
         Pierre *p = new Pierre(maxX, maxY);
         this->tabAnimaux[p->getX()][p->getY()].push_back(p);
+        this->nbAnimaux++;
+    }
+
+    for (oursAplacer; oursAplacer > 0; oursAplacer--)
+    {
+        Ours *o = new Ours(maxX, maxY);
+        this->tabAnimaux[o->getX()][o->getY()].push_back(o);
+        this->nbAnimaux++;
+    }
+
+    for (lionAplacer; lionAplacer > 0; lionAplacer--)
+    {
+        Lion *l = new Lion(maxX, maxY);
+        this->tabAnimaux[l->getX()][l->getY()].push_back(l);
         this->nbAnimaux++;
     }
 }

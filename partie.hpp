@@ -15,6 +15,8 @@
  #include "animal.hpp"
     #include "loup.hpp"
     #include "pierre.hpp"
+    #include "ours.hpp"
+    #include "lion.hpp"
     
  #include <vector>
  #include <iostream>
