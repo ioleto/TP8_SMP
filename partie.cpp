@@ -73,6 +73,10 @@ Partie::Partie(int maxX, int maxY)
         this->tabAnimaux[l->getX()][l->getY()].push_back(l);
         this->nbAnimaux++;
     }
+
+    cout << "Début de la partie :" << endl
+         << "   - Plateau de " << maxX << "x" << maxY << endl
+         << "   - " << this->nbAnimaux << " animaux ont été placés." << endl;
 }
 
 /* Destructeur */
@@ -153,6 +157,8 @@ void Partie::tourDeJeu()
         }
     }
 
+    string survivor = "";
+
     // On parcourt le tableau d'animaux pour vérifier les attaques
     for (int iy = 0; iy < this->maxY; iy++)
     {
@@ -175,12 +181,14 @@ void Partie::tourDeJeu()
                     {
                         // On supprime l'animal attaqué
                         this->tabAnimaux[ix][iy].pop_back();
+                        survivor = a->getNom();
                         // this->nbAnimaux--;
                     }
                     else
                     {
                         // On supprime l'animal attaquant
                         this->tabAnimaux[ix][iy].erase(this->tabAnimaux[ix][iy].begin());
+                        survivor = b->getNom();
                         // this->nbAnimaux--;
                     }
 
@@ -203,6 +211,11 @@ void Partie::tourDeJeu()
 
     // On compte le nombre d'animaux vivants
     cout << "Il reste " << this->nbAnimaux << (this->nbAnimaux == 1 ? " animal" : " animaux") << " en vie" << endl;
+
+    if (this->nbAnimaux == 1)
+    {
+        cout << "Le " << survivor << " a gagné !" << endl;
+    }
 }
 
 void Partie::afficherPlateau()
@@ -235,7 +248,8 @@ void Partie::afficherPlateau()
     {
         cout << "▬▬▬▬|";
     }
-    cout << endl;
+    cout << endl
+         << endl;
 }
 
 int Partie::getNbAnimaux()
